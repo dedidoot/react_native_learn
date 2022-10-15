@@ -9,16 +9,16 @@ export class ProductComponent extends Component {
         style={{
           backgroundColor: '#f2f2f2',
           padding: 10,
-          width: 212,
           marginTop: 16,
-          marginLeft: 16,
+          marginHorizontal: 16,
           borderRadius: 8,
         }}>
         <Image
           source={shoes}
           style={{
-            width: 188,
+            width: '100%',
             height: 107,
+            resizeMode: 'cover',
             borderRadius: 10,
           }}
         />

@@ -1,20 +1,40 @@
-import {ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import {ProductComponent} from './src/ProductComponent';
-import SampleComponent from './src/SampleComponent';
+import {ProfileComponent} from './src/ProfileComponent';
 
 const App = () => {
   return (
-    <ScrollView style={{backgroundColor: 'white'}}>
+    <SafeAreaView style={{backgroundColor: 'white'}}>
+      <ScrollView>
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+        <ProductPostView />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const ProductPostView = () => {
+  return (
+    <View style={{marginTop: 16}}>
+      <ProfileComponent />
       <ProductComponent />
-      <SampleComponent />
-      <ProductComponent />
-      <ProductComponent />
-      <SampleComponent />
-      <ProductComponent />
-      <ProductComponent />
-      <SampleComponent />
-      <ProductComponent />
-    </ScrollView>
+      <View
+        style={{
+          backgroundColor: '#EDEDED',
+          flex: 1,
+          height: 1,
+          marginTop: 16,
+        }}
+      />
+    </View>
   );
 };
 
