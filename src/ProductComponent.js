@@ -4,6 +4,7 @@ import shoes from '../assets/ic_shoes.jpeg';
 
 export class ProductComponent extends Component {
   render() {
+    console.log('sip', Date.now());
     return (
       <View
         style={{

@@ -1,7 +1,7 @@
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import {ProductComponent} from './src/ProductComponent';
 import {ProfileComponent} from './src/ProfileComponent';
-import MyProfile from "./src/MyProfile";
+import MyProfile from './src/MyProfile';
 
 const App = () => {
   return (
