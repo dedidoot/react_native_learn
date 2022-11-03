@@ -2,7 +2,39 @@ import {Component} from 'react';
 import {Image, Text, View} from 'react-native';
 
 export class ProfileComponent extends Component {
+  constructor() {
+    super();
+    console.log('constructor...');
+    this.state = {
+      username: 'Alex',
+      day: 31,
+    };
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount...');
+    setTimeout(() => {
+      this.setState({
+        username: 'Alex Updated...',
+        day: '22',
+      });
+    }, 2000);
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount...');
+  }
+
+  componentDidUpdate(
+    prevProps: Readonly<P>,
+    prevState: Readonly<S>,
+    snapshot: SS,
+  ) {
+    console.log('componentDidUpdate...');
+  }
+
   render() {
+    console.log('render...');
     return (
       <View>
         <View
@@ -18,8 +50,12 @@ export class ProfileComponent extends Component {
           <View style={{marginLeft: 8, flex: 1}}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text style={{color: '#000', fontSize: 18}}>John Doe</Text>
-              <Text style={{color: '#000', fontSize: 12}}>23 day ago</Text>
+              <Text style={{color: '#000', fontSize: 18}}>
+                {this.state.username}
+              </Text>
+              <Text style={{color: '#000', fontSize: 12}}>
+                {this.state.day} day ago
+              </Text>
             </View>
             <Text style={{color: '#000', fontSize: 14}}>Jakarta</Text>
           </View>
