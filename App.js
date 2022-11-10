@@ -2,19 +2,22 @@ import {Dimensions, SafeAreaView, ScrollView, View} from 'react-native';
 import {ProductComponent} from './src/ProductComponent';
 import {ProfileComponent} from './src/ProfileComponent';
 import {useEffect, useState} from 'react';
+import ProfileFuncComp from './src/ProfileFunctionalComponent';
 
 const App = () => {
   const [isShow, SetIsShow] = useState(true);
 
-  useEffect(() => {
+  /*useEffect(() => {
     setTimeout(() => {
       SetIsShow(false);
     }, 6000);
-  });
+  });*/
 
   return (
     <SafeAreaView style={{backgroundColor: 'white', height: SCREEN_HEIGHT}}>
-      <ScrollView>{isShow && <ProfileComponent />}</ScrollView>
+      <ScrollView>
+        <ProfileFuncComp />
+      </ScrollView>
     </SafeAreaView>
   );
 };
