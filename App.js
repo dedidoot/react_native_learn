@@ -1,11 +1,20 @@
-import {Dimensions, SafeAreaView, ScrollView, View} from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {ProductComponent} from './src/ProductComponent';
 import {ProfileComponent} from './src/ProfileComponent';
 import {useEffect, useState} from 'react';
 import ProfileFuncComp from './src/ProfileFunctionalComponent';
+import ProfilePropsComponent from './src/ProfilePropsComponent';
 
 const App = () => {
   const [isShow, SetIsShow] = useState(true);
+  const [username, setUsername] = useState('Joni');
+  const [day, setDay] = useState(1);
 
   /*useEffect(() => {
     setTimeout(() => {
@@ -16,7 +25,14 @@ const App = () => {
   return (
     <SafeAreaView style={{backgroundColor: 'white', height: SCREEN_HEIGHT}}>
       <ScrollView>
-        <ProfileFuncComp />
+        {/*<ProfileFuncComp />*/}
+        <TouchableOpacity
+          onPress={() => {
+            setUsername('Joni Updated...');
+            setDay(99);
+          }}>
+          <ProfilePropsComponent username={username} day={day} />
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
