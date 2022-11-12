@@ -15,7 +15,11 @@ const App = () => {
   const [isShow, SetIsShow] = useState(true);
   const [username, setUsername] = useState('Joni');
   const [day, setDay] = useState(1);
+  const posts = [];
 
+  for (let i = 0; i < 100; i++) {
+    posts.push(i);
+  }
   /*useEffect(() => {
     setTimeout(() => {
       SetIsShow(false);
@@ -33,6 +37,9 @@ const App = () => {
           }}>
           <ProfilePropsComponent username={username} day={day} />
         </TouchableOpacity>
+        {posts.map(post => {
+          return <ProfilePropsComponent username={Date.now()} day={post} />;
+        })}
       </ScrollView>
     </SafeAreaView>
   );
