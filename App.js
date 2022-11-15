@@ -10,6 +10,8 @@ import {ProfileComponent} from './src/ProfileComponent';
 import {useEffect, useState} from 'react';
 import ProfileFuncComp from './src/ProfileFunctionalComponent';
 import ProfilePropsComponent from './src/ProfilePropsComponent';
+import CalculatorWithStateClassComponent from './src/CalculatorWithStateClassComponent';
+import CalculatorWithStateFunctionalComponent from './src/CalculatorWithStateFunctionalComponent';
 
 const App = () => {
   const [isShow, SetIsShow] = useState(true);
@@ -17,7 +19,7 @@ const App = () => {
   const [day, setDay] = useState(1);
   const posts = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 3; i++) {
     posts.push(i);
   }
   /*useEffect(() => {
@@ -38,8 +40,16 @@ const App = () => {
           <ProfilePropsComponent username={username} day={day} />
         </TouchableOpacity>
         {posts.map(post => {
-          return <ProfilePropsComponent username={Date.now()} day={post} />;
+          return (
+            <ProfilePropsComponent
+              key={post}
+              username={Date.now()}
+              day={post}
+            />
+          );
         })}
+        <CalculatorWithStateClassComponent />
+        <CalculatorWithStateFunctionalComponent />
       </ScrollView>
     </SafeAreaView>
   );
