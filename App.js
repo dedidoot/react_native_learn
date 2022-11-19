@@ -1,55 +1,50 @@
-import {
-  Dimensions,
-  SafeAreaView,
-  ScrollView,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Dimensions, SafeAreaView, ScrollView, View} from 'react-native';
 import {ProductComponent} from './src/ProductComponent';
 import {ProfileComponent} from './src/ProfileComponent';
-import {useEffect, useState} from 'react';
-import ProfileFuncComp from './src/ProfileFunctionalComponent';
+import {useState} from 'react';
 import ProfilePropsComponent from './src/ProfilePropsComponent';
 import CalculatorWithStateClassComponent from './src/CalculatorWithStateClassComponent';
 import CalculatorWithStateFunctionalComponent from './src/CalculatorWithStateFunctionalComponent';
 
 const App = () => {
-  const [isShow, SetIsShow] = useState(true);
-  const [username, setUsername] = useState('Joni');
-  const [day, setDay] = useState(1);
   const posts = [];
+  const [thisIsClickFromProductItem, setThisIsClickFromProductItem] =
+    useState(0);
+  const [item, setItem] = useState(0);
 
   for (let i = 0; i < 3; i++) {
     posts.push(i);
   }
-  /*useEffect(() => {
-    setTimeout(() => {
-      SetIsShow(false);
-    }, 6000);
-  });*/
 
   return (
     <SafeAreaView style={{backgroundColor: 'white', height: SCREEN_HEIGHT}}>
       <ScrollView>
-        {/*<ProfileFuncComp />*/}
-        <TouchableOpacity
-          onPress={() => {
-            setUsername('Joni Updated...');
-            setDay(99);
-          }}>
-          <ProfilePropsComponent username={username} day={day} />
-        </TouchableOpacity>
         {posts.map(post => {
           return (
             <ProfilePropsComponent
               key={post}
               username={Date.now()}
               day={post}
+              onItemClicked={() => {
+                setThisIsClickFromProductItem(thisIsClickFromProductItem + 1);
+                console.log('hello item ', post);
+              }}
             />
           );
         })}
-        <CalculatorWithStateClassComponent />
-        <CalculatorWithStateFunctionalComponent />
+        <CalculatorWithStateFunctionalComponent
+          number2={thisIsClickFromProductItem}
+        />
+        <View style={{marginTop: 50}} />
+        <ProfilePropsComponent
+          key={3}
+          username={item}
+          day={993}
+          onItemClicked={() => {
+            setItem(item + 1);
+          }}
+        />
+        <CalculatorWithStateClassComponent number={item} />
       </ScrollView>
     </SafeAreaView>
   );

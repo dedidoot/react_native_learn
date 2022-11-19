@@ -6,6 +6,12 @@ class CalculatorWithStateClassComponent extends Component {
     number: 0,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      number: nextProps.number,
+    });
+  }
+
   render() {
     return (
       <View>

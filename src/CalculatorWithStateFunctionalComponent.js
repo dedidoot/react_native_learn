@@ -1,8 +1,14 @@
-import {Component, useState} from 'react';
+import {Component, useEffect, useState} from 'react';
 import {Button, Text, View} from 'react-native';
 
-const CalculatorWithStateFunctionalComponent = () => {
-  const [number, setNumber] = useState(0);
+const CalculatorWithStateFunctionalComponent = myProps => {
+  let [number, setNumber] = useState(0);
+
+  let {number2} = myProps;
+
+  useEffect(() => {
+    setNumber(number2);
+  }, [number2]);
 
   return (
     <View>
