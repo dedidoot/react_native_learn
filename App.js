@@ -5,6 +5,7 @@ import {useState} from 'react';
 import ProfilePropsComponent from './src/ProfilePropsComponent';
 import CalculatorWithStateClassComponent from './src/CalculatorWithStateClassComponent';
 import CalculatorWithStateFunctionalComponent from './src/CalculatorWithStateFunctionalComponent';
+import ReactNativeSvg from './src/ReactNativeSvg';
 
 const App = () => {
   const posts = [];
@@ -45,6 +46,7 @@ const App = () => {
           }}
         />
         <CalculatorWithStateClassComponent number={item} />
+        <ReactNativeSvg />
       </ScrollView>
     </SafeAreaView>
   );
