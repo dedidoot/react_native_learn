@@ -6,6 +6,7 @@ import ProfilePropsComponent from './src/ProfilePropsComponent';
 import CalculatorWithStateClassComponent from './src/CalculatorWithStateClassComponent';
 import CalculatorWithStateFunctionalComponent from './src/CalculatorWithStateFunctionalComponent';
 import ReactNativeSvg from './src/ReactNativeSvg';
+import CallAPIAxios from './src/CallAPIAxios';
 
 const App = () => {
   const posts = [];
@@ -47,6 +48,10 @@ const App = () => {
         />
         <CalculatorWithStateClassComponent number={item} />
         <ReactNativeSvg />
+        <CallAPIAxios index={1} />
+        <CallAPIAxios index={2} />
+        <CallAPIAxios index={3} />
+        <CallAPIAxios index={4} />
       </ScrollView>
     </SafeAreaView>
   );
