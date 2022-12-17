@@ -7,6 +7,7 @@ import CalculatorWithStateClassComponent from './src/CalculatorWithStateClassCom
 import CalculatorWithStateFunctionalComponent from './src/CalculatorWithStateFunctionalComponent';
 import ReactNativeSvg from './src/ReactNativeSvg';
 import CallAPIAxios from './src/CallAPIAxios';
+import UseEffectAndUseCallback from "./src/UseEffectAndUseCallback";
 
 const App = () => {
   const posts = [];
@@ -48,6 +49,7 @@ const App = () => {
         />
         <CalculatorWithStateClassComponent number={item} />
         <ReactNativeSvg />
+        <UseEffectAndUseCallback />
         <CallAPIAxios index={1} />
         <CallAPIAxios index={2} />
         <CallAPIAxios index={3} />
