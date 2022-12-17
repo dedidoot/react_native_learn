@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Button, Image, Text, View} from 'react-native';
 import axios from 'axios';
 
@@ -10,6 +10,14 @@ const CallAPIAxios = props => {
   });
 
   const getData = () => {
+    /*axios.interceptors.request.use(response => {
+      console.log('Response:', JSON.stringify(response.data, null, 2));
+      return response;
+    });*/
+    axios.interceptors.response.use(response => {
+      console.log('Response:', JSON.stringify(response.data, null, 2));
+      return response;
+    });
     axios
       .get('https://reqres.in/api/users/' + props.index)
       .then(result => {
@@ -17,6 +25,19 @@ const CallAPIAxios = props => {
       })
       .catch(err => console.log('error ', err));
   };
+
+  /*
+   * if you want hit API for first render, don't forget deps useEffect use [] worrying lopping render
+   * */
+  useEffect(() => {
+    console.log('sip...');
+    axios
+      .get('https://reqres.in/api/users/' + props.index)
+      .then(result => {
+        setUser(result.data.data);
+      })
+      .catch(err => console.log('error ', err));
+  }, []);
 
   return (
     <View>
