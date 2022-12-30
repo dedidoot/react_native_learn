@@ -1,4 +1,4 @@
-import {Button, Text, View} from 'react-native';
+import { Button, Text, TouchableOpacity, View } from "react-native";
 import {memo, useCallback, useEffect, useState} from 'react';
 
 function UseEffectAndUseCallbackAndMemo() {
@@ -21,37 +21,58 @@ function UseEffectAndUseCallbackAndMemo() {
 
   return (
     <View>
-      <TextMe label="number" val={number} />
-      <TextYou label="count" val={count} />
+      <OnlyText text={'Only Text'} setText={setCount} />
+      <TextMe label={'number'} val={number} />
+      <TextYou label={'count'} val={count} />
       <Button
         onPress={incrementNumber}
-        title="Change callback"
+        title={'Change callback'}
         color="#841584"
       />
 
       <Button
         onPress={incrementCount}
-        title="Do not change callback"
+        title={'Do not change callback'}
         color="#841584"
       />
     </View>
   );
 }
 
+const OnlyText = props => {
+  console.log('text', props.text, props);
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        props.setText(Date.now());
+      }}>
+      <Text>
+        {props.text} {Date.now()}
+      </Text>
+    </TouchableOpacity>
+  );
+};
+
 const TextMe = memo(({label, val}) => {
   console.log(`${label} TextMe render`);
+  /*
+   * Add more component in here, you can get benefit NO RE-RENDER components
+   * */
   return (
     <Text>
-      {label} {val}
+      {label} {val} {Date.now()}
     </Text>
   );
 });
 
 const TextYou = memo(({label, val}) => {
   console.log(`${label} TextYou render`);
+  /*
+   * Add more component in here, you can get benefit NO RE-RENDER components
+   * */
   return (
     <Text>
-      {label} {val}
+      {label} {val} {Date.now()}
     </Text>
   );
 });

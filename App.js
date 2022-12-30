@@ -23,7 +23,7 @@ const App = () => {
   return (
     <SafeAreaView style={{backgroundColor: 'white', height: SCREEN_HEIGHT}}>
       <ScrollView>
-        {posts.map(post => {
+        {/*{posts.map(post => {
           return (
             <ProfilePropsComponent
               key={post}
@@ -50,12 +50,12 @@ const App = () => {
         />
         <CalculatorWithStateClassComponent number={item} />
         <ReactNativeSvg />
-        <UseEffectAndUseCallback />
+        <UseEffectAndUseCallback />*/}
         <UseEffectAndUseCallbackAndMemo />
-        <CallAPIAxios index={1} />
+        {/*<CallAPIAxios index={1} />
         <CallAPIAxios index={2} />
         <CallAPIAxios index={3} />
-        <CallAPIAxios index={4} />
+        <CallAPIAxios index={4} />*/}
       </ScrollView>
     </SafeAreaView>
   );
